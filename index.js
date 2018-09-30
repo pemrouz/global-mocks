@@ -28,6 +28,7 @@ function WebSocket(location) {
   this.sent = []
   this.send = d => this.sent.push(d)
   WebSocket.sockets.push(this)
+  Promise.resolve().then(() => this.onopen())
 }
 
 function fakeTimeout(fn, ms){
